@@ -2,8 +2,10 @@ from flask import Flask, request, send_file, make_response
 from werkzeug.utils import secure_filename
 import os
 from haloopinate import haloopinate
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config["UPLOAD"] = os.path.join('static', 'uploads')
 
 # @app.route('/')
