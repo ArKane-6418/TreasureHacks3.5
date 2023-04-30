@@ -5,10 +5,20 @@ function App() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [output, setOutput] = useState(null);
+  const [awaitingOutput, setAwaitingOutput] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Frontend rejection if the image is still being processed.
+    if (awaitingOutput) {
+      return;
+    }
+
     console.log("Image submitted:", image);
+
+    // Only for testing
+    setOutput(preview);
+
   };
 
   const handleFileChange = (event) => {
@@ -20,13 +30,14 @@ function App() {
       setPreview(reader.result);
     };
     reader.readAsDataURL(event.target.files[0]);
+
   };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="text-shadow">Ha<span className="emphasis">loop</span>inate</h1>
-        <h2>Placeholder Subtitle</h2>
+        <h2>A deep-dream looping GIF generator</h2>
       </header>
       <form onSubmit={handleSubmit}>
         <div className="image-io">
@@ -37,18 +48,18 @@ function App() {
           <div style={{"width" : "2rem"}}></div>
           <div className="image-output">
             <h3>Output</h3>
-            <img className="output" src={output ? output : "https://via.placeholder.com/256"} alt="Input"/>
+            <img className="output" src={output ? output : "https://via.placeholder.com/256"} alt="Output"/>
           </div>
         </div>
         <input type="file" accept="image/*" onChange={handleFileChange} />
-        <button type="submit">Submit</button>
+        <button type="submit">Generate!</button>
       </form>
       <footer className="App-footer">
         <div className="credits">
-          Joshua Ong, Alston Lo, Jamie Zhao
+          © 2023 Joshua Ong, Alston Lo, Jamie Zhao
         </div>
         <div className="github-link">
-          <a href="/"><img className="github" src="logo-github.svg"></img></a>
+          <a href="https://github.com/ArKane-6418/TreasureHacks3.5"><img className="github" src="logo-github.svg"></img></a>
         </div>
       </footer>
     </div>
