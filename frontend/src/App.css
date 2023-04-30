@@ -1,0 +1,139 @@
+
+/* Fonts */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/JetBrainsMono-Regular.woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono Bold Italic';
+  font-style: italic;
+  font-weight: 700;
+  src: url('fonts/JetBrainsMono-ExtraBoldItalic.woff2');
+}
+
+
+/* Custom colours */
+:root {
+  --light: #EEEEEE;
+  --dark: #0C0F0A;
+  --primary: #FF206E;
+  --secondary: #41EAD4;
+  --tertiary: #FBFF12;
+}
+
+
+
+
+* {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light);
+}
+
+h1 {
+  color: var(--primary);
+  font-size: 4rem;
+}
+
+.text-shadow {
+  text-shadow: 4px 4px 0px var(--secondary);
+}
+.emphasis {
+  text-shadow: 4px 4px 0px var(--secondary);
+  font-family: 'JetBrains Mono Bold Italic', monospace;
+  color: var(--dark);
+}
+
+.App-header {
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.image-io {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.image-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  height: 20rem;
+}
+
+.output {
+  height: 20rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--light);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0069d9;
+}
+
+.App-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  height: 3rem;
+  padding: 0rem 0rem 0rem 0rem;
+  width: 100vw;
+  background-color: var(--primary);
+}
+
+.App-footer > * {
+  color: var(--light);
+  text-align: center;
+  align-self: center;
+}
+
+.credits {
+  margin-left: 1rem;
+}
+
+.github {
+  /* object-fit: contain; */
+  max-height: 2.5rem;
+  fill: var(--light);
+}
+
+.github-link {
+  margin-right: 1rem;
+}
