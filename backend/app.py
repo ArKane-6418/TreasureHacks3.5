@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_file, make_response
 from werkzeug.utils import secure_filename
 import os
 from haloopinate import haloopinate
@@ -25,16 +25,19 @@ def generate_deep_dream():
         
         # elif request.form['submit'] == 'Generate':
         # Pass image to model code to return deep dream version
-    file = request.files["image"]
+    # print(request.content_length)
+    file = request.files['image']
     filename = secure_filename(file.filename)
 
-     # Save image locally and get the path
+    # Save image locally and get the path
     file.save(os.path.join(app.config['UPLOAD'], filename))
     
-    img_path = os.path.join(app.config['UPLOAD'], "mona_lisa.jpeg")
-    export_path = os.path.join(app.config['UPLOAD'], "mona_lisa.gif")
+    img_path = os.path.join(app.config['UPLOAD'], filename)
+    export_path = os.path.join(app.config['UPLOAD'], filename + '_haloopinated.gif')
     haloopinate(image_path=img_path, export_path=export_path, duration=6, debug=True)
-    return    
+    response = make_response(send_file(export_path, mimetype='image/gif'))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
         
 # @app.route("/generate", methods=["POST"])
 # def generate_deep_dream():

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
-const endpoint = '';
+const endpoint = 'http://localhost:5000/generate';
 
 function App() {
   const [image, setImage] = useState(null);
@@ -16,8 +16,6 @@ function App() {
     if (awaitingOutput) {
       return;
     }
-
-    // fetch("http://localhost:3000/generate")
     console.log("Image submitted:", image);
     setAwaitingOutput(true);
     fetchImage();
@@ -25,15 +23,16 @@ function App() {
 
   // Update the image preview.
   const handleFileChange = (event) => {
+    if (event.target.files.length === 0) {
+      return;
+    }
     setImage(event.target.files[0]);
-
     // Create a preview of the uploaded image.
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreview(reader.result);
     };
     reader.readAsDataURL(event.target.files[0]);
-
   };
 
   // Fetch the image from the backend.
@@ -46,16 +45,19 @@ function App() {
       setAwaitingOutput(false);
       return;
     }
+    const formData = new FormData();
+    formData.append("image", image);
     const res = await fetch(endpoint, {
       method: "POST",
-      body: image,
+      // mode: "no-cors",
+      body: formData,
     });
-    const imageBlob = await res.blob();
-    const imageObjectURL = URL.createObjectURL(imageBlob);
     if (res.ok) {
+      const imageBlob = await res.blob();
+      const imageObjectURL = URL.createObjectURL(imageBlob);
       setOutput(imageObjectURL);
-      setAwaitingOutput(false);
     }
+    setAwaitingOutput(false);
   };
 
   return (
@@ -65,22 +67,22 @@ function App() {
         <h1 className="text-shadow">Ha<span className="emphasis anim1">l</span><span className="emphasis anim2">o</span><span className="emphasis anim3">o</span><span className="emphasis anim4">p</span>inate</h1>
         <h2>A deep-dream looping GIF generator</h2>
       </header>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="post" encType="multipart/form-data" action="http://localhost:5000/generate">
         <div className="image-io">
           <div className="image-input">
             <h3>Input</h3>
-            <img className="input" src={preview ? preview : "https://via.placeholder.com/256"} alt="Input"/>
+            <img className="input" src={preview ? preview : "https://via.placeholder.com/256"} alt="Input" />
           </div>
-          <div style={{"width" : "2rem"}}></div>
+          <div style={{ "width": "2rem" }}></div>
           <div className="image-output">
             <h3>Output</h3>
-            <img className="output" src={output ? output : "https://via.placeholder.com/256"} alt="Output"/>
+            <img className="output" src={output ? output : "https://via.placeholder.com/256"} alt="Output" />
           </div>
         </div>
         <div>
           <h5 className="notification"></h5>
         </div>
-        <input type="file" accept="image/*" onChange={handleFileChange} required/>
+        <input title="image" type="file" name="image" accept="image/png, image/jpg, image/jpeg" onChange={handleFileChange} required />
         <button type="submit">Generate!</button>
       </form>
       <footer className="App-footer">
