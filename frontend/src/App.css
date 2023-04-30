@@ -1,0 +1,155 @@
+
+/* Fonts */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/JetBrainsMono-Regular.woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono Bold Italic';
+  font-style: italic;
+  font-weight: 700;
+  src: url('fonts/JetBrainsMono-ExtraBoldItalic.woff2');
+}
+
+/* Custom colours */
+:root {
+  --light: #EEEEEE;
+  --dark: #0C0F0A;
+  --primary: #FF206E;
+  --secondary: #41EAD4;
+  --tertiary: #FBFF12;
+}
+
+/* ========== BEGIN STYLE ========== */
+
+* {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light);
+}
+
+h1 {
+  color: var(--primary);
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.text-shadow {
+  text-shadow: 0.35rem 0.35rem 0px var(--secondary);
+}
+.emphasis {
+  text-shadow: 0.35rem 0.35rem 0px var(--secondary);
+  font-family: 'JetBrains Mono Bold Italic', monospace;
+  color: var(--dark);
+}
+
+.App-header {
+  padding: 2rem 2rem 0rem 2rem;
+  border-radius: 5px;
+}
+
+.image-io {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+  width: 100vw;
+}
+
+.image-input, .image-output {
+  display: flex;
+  flex-direction: column;
+}
+
+.input, .output {
+  height: 20rem;
+  box-shadow: 0.35rem 0.35rem 0px var(--secondary);
+  border-style: solid;
+  border-color: var(--dark);
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .image-io {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+input[type="file"] {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--dark);
+  border-style: solid;
+  border-color: var(--dark);
+  border-radius: 5px;
+  box-shadow: 0.35rem 0.35rem 0px var(--secondary);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+button:hover {
+  background-color: var(--secondary);
+  box-shadow: 0.35rem 0.35rem 0px var(--secondary);
+  color: var(--tertiary);
+}
+
+.App-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  height: 3rem;
+  padding: 0rem 0rem 0rem 0rem;
+  width: 100vw;
+  background-color: var(--primary);
+}
+
+.App-footer > * {
+  color: var(--light);
+  text-align: center;
+  align-self: center;
+}
+
+.credits {
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.github {
+  /* object-fit: contain; */
+  max-height: 2.25rem;
+  align-self: center;
+  fill: var(--light);
+}
+
+.github-link {
+  margin-right: 1rem;
+  align-self: center;
+}
