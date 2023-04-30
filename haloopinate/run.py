@@ -52,7 +52,7 @@ def haloopinate(
     frames = torch.stack(frames, dim=0)  # (T C W H)
 
     # Hang on first frame for 1s more seamless loop
-    repeats = [1] * frames.shape[0]
+    repeats = torch.ones(frames.shape[0], dtype=torch.int32).to(DEVICE)    
     repeats[0] = fps
     frames = frames.repeat_interleave(repeats, dim=0)
 
