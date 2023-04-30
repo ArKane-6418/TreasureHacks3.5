@@ -6,8 +6,10 @@
 
 ______________________________________________________________________
 
-![](samples/mona_lisa.gif)
-![](samples/treasure_hacks_logo.gif)
+<p align="center">
+  <img src="samples/mona_lisa.gif"/>
+  <img src="samples/treasure_hacks_logo.gif"/>
+</p>
 
 Haloopinate allows users to leverage the power of deep learning to hallucinate an infinitely-looping psychedelic GIF based on an input image.
 It can be accessed through a user-friendly GUI or through a command-line interface, where more hyperparameters options are exposed.
