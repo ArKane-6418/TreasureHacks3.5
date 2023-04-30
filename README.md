@@ -14,7 +14,7 @@ Haloopinate was submitted as an entry for Treasure Hacks 3.5 (Devpost TBD).
 
 ## Inspiration
 
-Haloopinate was inspired by the recent and significant advances in deep learning for the visual arts, with models such as Midjourney. These models can contain billions of parameters, which would be too unwieldy to adapt for a one-day hackathon. In our brainstorming session, we recalled the older yet more tractable technique of DeepDreaming [1], which can produce wild psychedelic images that are both mesmerizing and disorienting. We thought that if we could continuously stitch together these images that it would make for a cool GIF, which ultimately led to the “inception” of this project!
+Haloopinate was inspired by the recent and significant advances in deep learning for the visual arts, with models such as Midjourney. These models can contain billions of parameters, which would be too unwieldy to adapt for a one-day hackathon. In our brainstorming session, we recalled the older yet more tractable technique of DeepDreaming [1], which can produce wild psychedelic images that are both mesmerizing and disorienting. We thought that if we could continuously stitch together these images that it would make for a cool GIF, which ultimately led to the "inception" of this project!
 
 ## Usage
 
