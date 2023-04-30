@@ -18,7 +18,7 @@ Haloopinate was inspired by the recent and significant advances in deep learning
 
 ## Usage
 
-## Dependencies
+### Dependencies
 
 Install all necessary dependencies with:
 
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 The command-line interface (CLI) relies only on `torch`, `torchvision`, and `imageio`. 
 
-## Command-Line Interface
+### Command-Line Interface
 
 Haloopinate comes with a CLI that exposes more hyperparameter options: 
 
