@@ -49,6 +49,7 @@ def haloopinate(
         return_base=debug,
         verbose=verbose,
     )
+    frames = torch.stack(frames, dim=0)  # (T C W H)
 
     # Hang on first frame for 1s more seamless loop
     repeats = [1] * frames.shape[0]
@@ -56,7 +57,6 @@ def haloopinate(
     frames = frames.repeat_interleave(repeats, dim=0)
 
     # Blend video
-    frames = torch.stack(frames, dim=0)  # (T C W H)
     frames = torch.lerp(
         frames,  # current frame
         end=torch.roll(frames, shifts=1, dims=[0]),  # past frame
