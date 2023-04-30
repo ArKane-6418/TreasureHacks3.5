@@ -16,17 +16,26 @@ Haloopinate was submitted as an entry for Treasure Hacks 3.5 (Devpost TBD).
 
 Haloopinate was inspired by the recent and significant advances in deep learning for the visual arts, with models such as Midjourney. These models can contain billions of parameters, which would be too unwieldy to adapt for a one-day hackathon. In our brainstorming session, we recalled the older yet more tractable technique of DeepDreaming [1], which can produce wild psychedelic images that are both mesmerizing and disorienting. We thought that if we could continuously stitch together these images that it would make for a cool GIF, which ultimately led to the “inception” of this project!
 
-## Installation
+## Usage
 
-First, install all necessary dependencies with:
+## Dependencies
+
+Install all necessary dependencies with:
 
 ```commandline
 pip install -r requirements.txt
 ```
 
-## CLI
+The command-line interface (CLI) relies only on `torch`, `torchvision`, and `imageio`. 
 
+## Command-Line Interface
+
+Haloopinate comes with a CLI that exposes more hyperparameter options: 
+
+```commandline
+python -m backend.haloopinate.run --image_path=[...] --export_path=[...] --help
+```
 
 ## References
-[1] The original DeepDreaming blog post: https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html 
-[2] Aleksa Gordić’s DeepDream implementation: https://github.com/gordicaleksa/pytorch-deepdream/tree/master  
+- [1] The original DeepDreaming blog post: https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html 
+- [2] Aleksa Gordić’s DeepDream implementation: https://github.com/gordicaleksa/pytorch-deepdream/tree/master  
