@@ -40,6 +40,36 @@ Haloopinate comes with a CLI that exposes more hyperparameter options:
 python -m backend.haloopinate.run --help
 ```
 
+## Frontend
+
+To get the frontend up and running,
+
+1. Go into the frontend folder using:
+```commandline
+cd frontend
+```
+2. Install all the required modules with:
+```commandline
+npm install
+```
+3. Lastly, start the app with:
+```commandline
+npm start
+```
+
+## Backend
+
+To get the backend running, 
+
+1. Go into the frontend folder using:
+```commandline
+cd frontend
+```
+2. Start the backend with:
+```commandline
+npm run start-backend
+```
+
 ## References
 - [1] The original DeepDream [blog post](https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html)
 - [2] Aleksa Gordić’s DeepDream [implementation](https://github.com/gordicaleksa/pytorch-deepdream/tree/master)  
