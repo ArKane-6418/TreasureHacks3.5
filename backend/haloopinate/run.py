@@ -6,8 +6,8 @@ import imageio
 import torch
 import torchvision
 
-from backend.haloopinate.dream import deep_dream
-from backend.haloopinate.models import PretrainedVGG16
+from haloopinate.dream import deep_dream
+from haloopinate.models import PretrainedVGG16
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 VGG16 = PretrainedVGG16().to(DEVICE)

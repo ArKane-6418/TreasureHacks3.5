@@ -1,1 +1,1 @@
-from backend.haloopinate.run import haloopinate
+from haloopinate.run import haloopinate
