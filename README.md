@@ -40,5 +40,5 @@ python -m backend.haloopinate.run --help
 ```
 
 ## References
-- [1] The original DeepDreaming blog post: https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html 
-- [2] Aleksa Gordić’s DeepDream implementation: https://github.com/gordicaleksa/pytorch-deepdream/tree/master  
+- [1] The original DeepDream [blog post](https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html)
+- [2] Aleksa Gordić’s DeepDream [implementation](https://github.com/gordicaleksa/pytorch-deepdream/tree/master)  
