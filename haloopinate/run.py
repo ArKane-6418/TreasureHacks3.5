@@ -1,4 +1,5 @@
 import argparse
+import math
 from typing import Literal
 
 import imageio
@@ -7,7 +8,6 @@ import torchvision
 
 from haloopinate.dream import deep_dream
 from haloopinate.models import PretrainedVGG16
-
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 VGG16 = PretrainedVGG16().to(DEVICE)
@@ -52,9 +52,13 @@ def haloopinate(
     frames = torch.stack(frames, dim=0)  # (T C W H)
 
     # Hang on first frame for 1s more seamless loop
-    repeats = torch.ones(frames.shape[0], dtype=torch.int32).to(DEVICE)
-    repeats[0] = fps
-    frames = frames.repeat_interleave(repeats=repeats, dim=0)
+    num_freeze = math.ceil(fps / 3)
+    weights = torch.linspace(start=0.0, end=1.0, steps=num_freeze).view(-1, 1, 1, 1).to(DEVICE)
+
+    freeze = torch.stack([image] * math.ceil(fps / 3), dim=0)
+    ramp_start = freeze + weights * (frames[0] - freeze)
+    ramp_end = freeze + weights.flip([0]) * (frames[-1] - freeze)
+    frames = torch.cat([ramp_start, frames, ramp_end, freeze], dim=0)
 
     # Blend video
     frames = torch.lerp(
