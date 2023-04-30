@@ -37,7 +37,7 @@ The command-line interface (CLI) relies only on `torch`, `torchvision`, and `ima
 Haloopinate comes with a CLI that exposes more hyperparameter options: 
 
 ```commandline
-python -m backend.haloopinate.run --help
+python -m haloopinate.run --help
 ```
 
 ## Frontend
