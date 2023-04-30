@@ -17,6 +17,7 @@ function App() {
       return;
     }
 
+    // fetch("http://localhost:3000/generate")
     console.log("Image submitted:", image);
     setAwaitingOutput(true);
     fetchImage();
@@ -79,7 +80,7 @@ function App() {
         <div>
           <h5 className="notification"></h5>
         </div>
-        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <input type="file" accept="image/*" onChange={handleFileChange} required/>
         <button type="submit">Generate!</button>
       </form>
       <footer className="App-footer">
@@ -87,7 +88,7 @@ function App() {
           © 2023 Joshua Ong, Alston Lo, Jamie Zhao
         </div>
         <div className="github-link">
-          <a href="https://github.com/ArKane-6418/TreasureHacks3.5"><img className="github" src="logo-github.svg"></img></a>
+          <a href="https://github.com/ArKane-6418/TreasureHacks3.5"><img className="github" src="logo-github.svg" alt="github"></img></a>
         </div>
       </footer>
     </div>

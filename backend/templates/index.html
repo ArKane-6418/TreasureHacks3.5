@@ -1,0 +1,28 @@
+<!DDCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Deep Dreaming</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <h1>Home</h1>
+    <section>
+      <form method="post" enctype="multipart/form-data" action="{{ url_for('upload_image') }}">
+        <label for="image">
+          <input id="image" type="file" name="image" value="image" accept="image/jpg, image/png, image/jpeg" required>
+        </label>
+        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Generate"> 
+      </form>
+      {% if img %}
+      <h1>Rendered Image</h1>
+      <img src="{{img}}">
+      {% endif %}
+      {% if result %}
+      <h1>Resulting GIF</h1>
+      <img src="{{result}}">
+      {% endif %}
+    </section>
+  </body>
+</html>
